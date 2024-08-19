@@ -27,7 +27,7 @@ const Blog = async () => {
   };
 
   return (
-    <div className="grid lg:grid-cols-3 w-full grid-cols-1 gap-4 py-10   lg:px-24 px-2 ">
+    <div className="grid lg:grid-cols-3 w-full grid-cols-1 md:grid-cols-2 gap-4 py-10  bg-neutral-100 dark:bg-neutral-900  lg:px-24 px-2 ">
       {data.map((post, index) => (
         <div className="w-full p-4 flex justify-between h-max" key={post.id}>
           <Link href={`/blog/${post["slug"]}`} className="">
@@ -41,15 +41,15 @@ const Blog = async () => {
               />
             </div>
 
-            <h2 className="">{post.title.rendered}</h2>
+            <h2 className="font-bold text-xl">{post.title.rendered}</h2>
             <div
               dangerouslySetInnerHTML={{
                 __html: truncateText(post["excerpt"]["rendered"], 15),
               }}
-              className="text-neutral-600"
+              className="text-neutral-600 dark:text-neutral-300"
             />
             <div className=" ">
-              <p className=""> Read More</p>{" "}
+              <p className="border border-neutral-900 dark:border-neutral-100 w-max px-3 py-1 rounded-lg hover:bg-neutral-900 dark:hover:bg-neutral-100 hover:text-neutral-100 dark:hover:text-neutral-900"> Read More</p>{" "}
             </div>
           </Link>
         </div>
